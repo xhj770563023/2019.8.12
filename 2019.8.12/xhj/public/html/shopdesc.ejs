@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Do cument</title>
+    <link rel="stylesheet" href="../css/flexible.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../fonts/iconfont.css">
+    <script src="../js/flexible.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <div class="header">
+            <div class="left"><img src="../images/产品_02.gif" alt=""></div>
+            <div class="title_text"><%= data.name %> </div>
+            <div class="right" data-id="<%= data.id %>">
+                <span >购买</span>
+            </div>
+        </div>
+        <div class="section">
+            <div class="desc">
+            <div class="div-vscode"></div>
+            <div class="shop_desc">
+                <img src="<%= data.bikepic %>" id="pic1">
+            </div>
+            <div class="desc_menu">
+                <h2 id="name1"><%= data.name %></h2>
+                <h3 ><%= data.desc %></h3>
+                <p><img src="<%= data.p %>" alt=""></p>
+                <h6 >￥<em id="money1"><%= data.price %></em> 元</h6>
+                <div id="buy" data-id="<%= data.id %>">立即购买</div>
+                <div class="back">
+                        <i class="icon iconfont icon-angle-up"></i>
+                </div>
+            </div>
+        </div>
+        </div>
+
+    </div>
+</body>
+<script src="../js/ajax.js"></script>
+<script src="../js/desc.js"></script>
+</html>

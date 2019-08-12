@@ -1,0 +1,490 @@
+@function px2rem($px){
+    @return $px/75*1rem;
+}
+@mixin ell() {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+html,body,#app{
+    height: 100%;
+}
+body{
+    font-size: 12px;
+}
+#app{
+    display: flex;
+    flex-direction: column;
+    
+}
+.header{
+    display: flex;
+    padding-left:px2rem(20); 
+
+    padding-right:px2rem(20); 
+    box-sizing: border-box;
+    height: px2rem(95);
+    width: 100%;
+    font-size: px2rem(44);
+    border-bottom: 2px solid #ccc;
+    .left,.right{
+        width: px2rem(90);
+        padding-left: px2rem(10);
+    }
+    .left{
+        img{
+            border: 0;
+            height: px2rem(90);
+        }
+        .iconfont{
+            color: #666;
+            font-size: px2rem(40);
+            text-align: center;
+            line-height: px2rem(90);
+        }
+    }
+    .title_text{
+        flex: 1;
+        text-align: center;
+        line-height: px2rem(90);
+    }
+    .right{
+        width: px2rem(135);
+        span{
+            font-size: px2rem(32);
+            display: inline-block;
+            margin-top: px2rem(15);
+            width: px2rem(135);
+            height: px2rem(65);
+            line-height: px2rem(65);
+            border-radius: px2rem(50);
+            text-align: center;
+            background-color: #ffcb05;
+        }
+    }
+}
+.section{
+    flex: 1;
+    background-color: #f4f4f4;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    .login{
+        height: px2rem(70);
+        line-height: px2rem(70);
+        text-align: center;
+        background-color: #fff;
+        #login_btn{
+            display: inline-block;
+            width: px2rem(97);
+            height: px2rem(45);
+            background-color: #9a0000;
+            color: #fff;
+            text-align: center;
+            line-height: px2rem(45);
+        }
+    }
+    .checkAll{
+        background-color: #fff;
+        height: px2rem(75);
+        margin-top: px2rem(15);
+        line-height: px2rem(75);
+        padding-left: px2rem(25);
+        .checkAllbtn{
+            display: inline-block;
+            width: px2rem(40);
+            height: px2rem(40);
+            border-radius: 50%;
+            border: 2px solid #ccc;
+            line-height: px2rem(40);
+            text-align: center;
+            user-select: none;
+            .iconfont{
+                font-size: px2rem(25);
+                color: #fff;
+            }
+            &.active1{
+                background-color: #ffcb05;
+            }
+        }
+    }
+    .shoplist_container{
+        flex: 1;
+        // margin-top: px2rem(15);
+        overflow: hidden;
+        
+        .shopCar_wrap{
+            overflow: hidden;
+            height: 100%;
+        }
+        .shopCar_wrap>div{
+            min-height: 101%;
+        }
+        .content{
+            .shop_content{
+                
+                .shop_list{
+                    display: flex;
+                    justify-content: left;
+                    height: px2rem(243);
+                    border-bottom: 2px solid #ccc;
+                    .shop_left{
+                        width: px2rem(90);
+                        line-height: px2rem(243);
+                        text-align: center;
+                        height: 100%;
+                        .checkbtn{
+                            display: inline-block;
+                            width: px2rem(40);
+                            height: px2rem(40);
+                            border-radius: 50%;
+                            border: 2px solid #ccc;
+                            line-height: px2rem(40);
+                            text-align: center;
+                            user-select: none;
+                            .iconfont{
+                                font-size: px2rem(25);
+                                color: #f4f4f4;
+                            }
+                            &.active1{
+                                background-color: #ffcb05;
+                            }
+                        }
+                    }
+                    .shop_center{
+                        box-sizing: border-box;
+                        padding-top: px2rem(15);
+                        width: px2rem(215);
+                        height: 100%;
+                        line-height: px2rem(243);
+                        .shop_img{
+                            width: px2rem(215);
+                            height: px2rem(215);
+                        }
+                        img{
+                            display: block;
+                            width: 100%;
+                            height: 100%;
+                        }
+                    }
+                    .shop_right{
+                        flex: 1;
+                        overflow: hidden;
+                        box-sizing: border-box;
+                        padding-left: px2rem(32);
+                        .shop_right_title{
+                            display: flex;
+                            justify-content: space-between;
+                            height: px2rem(75);
+                            line-height: px2rem(75);
+                            text-align: left;
+                            font-size: px2rem(30);
+                            padding-right: px2rem(30);
+                            padding-top:px2rem(30);
+                            .shop_right_delbtn{
+                                display: inline-block;
+                                width: px2rem(40);
+                                height: px2rem(40);
+                                border-radius: 50%;
+                                border: 2px solid #ccc;
+                                line-height: px2rem(40);
+                                text-align: center;
+                                user-select: none;
+                                background-color: #ccc;
+                                .iconfont{
+                                    font-size: px2rem(25);
+                                    color: #fff;
+                                }
+                            }
+                        }
+                        .shop_right_desc{
+                            display: flex;
+                            line-height: normal;
+                            height: px2rem(80);
+                            color: #666;
+                        }
+                        .shop_right_mn{
+                            display: flex;
+                            justify-content: space-between;
+                            padding-right: px2rem(38);
+                            height: px2rem(43);
+                            .money{
+                                color: #9a0000;
+                                font-size: px2rem(24);
+                                line-height: px2rem(43);
+                            }
+                            .num{
+                                display: flex;
+                                box-sizing: border-box;
+                                border: 1px solid #666;
+                                width: px2rem(120);
+                                height: px2rem(42);
+                                #size{
+                                    width: px2rem(42);
+                                    background-color: #f4f4f4;
+                                    border: 0;
+                                    border-left: 1px solid #666;
+                                    border-right: 1px solid #666;
+                                    line-height: px2rem(40);
+                                    text-align: center;
+
+                                }
+                                span{
+                                    flex: 1;
+                                    text-align: center;
+                                    line-height: px2rem(40);
+                                    font-size: px2rem(32);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        
+    }
+    #allMoney{
+        display: flex;
+        justify-content: space-between;
+        padding-left: px2rem(25);
+        width: 100%;
+        height: px2rem(100);
+        line-height: px2rem(100);
+        background-color: #fff;
+        .allcheck{
+            display: inline-block;
+            width: px2rem(40);
+            height: px2rem(40);
+            border-radius: 50%;
+            border: 2px solid #ccc;
+            line-height: px2rem(40);
+            text-align: center;
+            user-select: none;
+            .iconfont{
+                font-size: px2rem(25);
+                color: #fff;
+            }
+            &.active1{
+                background-color: #ffcb05;
+            }
+        }
+        .left_allMoney{
+            width: px2rem(110);
+        }
+        .center_allMoney{
+            flex: 1;
+            text-align: center;
+            #allshopmoney{
+                color: #9a0000;
+                font-weight: 600;
+            }
+        }
+        .right_allMoney{
+            width: px2rem(200);
+            text-align: center;
+            background-color: #9a0000;
+            color: #fff;
+        }
+    }
+    .desc{
+        height: 100%;
+        background-color: #fff;
+    }
+    .div-vscode{
+        height: px2rem(80);
+        background:linear-gradient(to bottom,#e4e1e1,#fbfbfb,#fff)
+    }
+    .shop_desc{
+        width: 100%;
+        height: px2rem(478);
+        img{
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+        
+    }
+    .desc_menu{
+        position: relative;
+        margin-top: px2rem(80);
+        text-align: center;
+        h2{
+            font-size: px2rem(68);
+            font-weight: 500;
+        }
+        h3{
+            margin-top: px2rem(30);
+            font-size: px2rem(38);
+            color: #666;
+        }
+        h6{
+            margin-top: px2rem(55);
+            font-size: px2rem(32);
+            font-weight: 400;
+
+        }
+        p{
+            margin-top: px2rem(50);
+
+        }
+        #buy{
+            width: px2rem(224);
+            height: px2rem(75);
+            line-height: px2rem(75);
+            background-color: #ffcb05;
+            border-radius: px2rem(50);
+            margin: px2rem(28) auto;
+        }
+        .back{
+            position: absolute;
+            width: px2rem(105);
+            height: px2rem(105);
+            line-height: px2rem(105);
+            border-radius: 50%;
+            background-color: #f8f8f8;
+            right: px2rem(60);
+            bottom: px2rem(10);
+            .iconfont{
+                font-size: px2rem(68);
+                color: #999;
+            }
+        }
+    }
+    //主页
+    .index_main{
+        display: flex;
+        background-color: #fff;
+        height: 100%;
+        .section_left{
+            width: 20%;
+            height: 100%;
+            border-right: 1px solid #999;
+            .left_menu-wrap{
+                height: 100%;
+                overflow: hidden;
+            }
+            .left_menu-wrap>div{
+             min-height: 200.1%;
+                .content{
+                   #section_left_ul{
+                       padding-top:px2rem(50); 
+                    li:first-child{
+                        margin-top: px2rem(0);
+                    }
+                       li{
+                           box-sizing: border-box;
+                           width: px2rem(158);
+                           height: px2rem(50);
+                           line-height: px2rem(50);
+                           margin-top: px2rem(70);
+                           text-align: center;
+                           &.liactive{
+                               border-left: 4px solid #ffcb05;
+                           }
+                       }
+                   } 
+                }
+            }
+        }
+        .section_right{
+            flex: 1;
+            height: 100%;
+            .right_bottom_wrap{
+                display: none;
+                &.active_p{
+                    display: block;
+                }
+                .right_bscroll_wrap{
+                    overflow: hidden;
+                    height: 100%;
+                }
+                .right_bscroll_wrap>div{
+                    min-height: 100.1%;
+                }
+                .right_bottom_content{
+                    
+                    .swiper{
+                        margin: px2rem(30) auto;
+                        width: px2rem(531);
+                        height: px2rem(192);
+                        img{
+                            display: block;
+                            width: 100%;
+                            height: 100%;
+                        }
+                    }
+                    .right_shop_list{
+                        margin-top:px2rem(55);
+                        h4{
+                            text-align: center;
+                            color: #999;
+                            b{
+                                color: #666;
+                            }
+                        }
+                        .shopbikelist{
+                            display: flex;
+                            flex-wrap: wrap;
+                            padding-left: px2rem(30);
+                            margin-top:px2rem(85);
+                            .bike_content{
+                                width: px2rem(185);
+                                height: px2rem(255);
+                                 dl{
+                                    width: px2rem(150);
+                                    height: px2rem(255);
+                                    dd{
+                                        box-sizing: border-box;
+                                        padding-top:px2rem(40);
+                                        height: px2rem(175);
+                                        text-align: center;
+                                    }
+                                }
+                            }
+                           
+                        }
+                    }
+                }
+            }
+            .people_equip,.bike_equip{
+                color: red;
+                font-size: px2rem(60);
+                display: none;
+                &.active_p{
+                    display: block;
+                }
+            }
+        }
+    }
+}
+.footer{
+    display: flex;
+    box-sizing: border-box;
+    padding-top:px2rem(10);
+    width: 100%;
+    height: px2rem(98);
+    border-top: 1px solid #ccc;
+    justify-content: space-around;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    a{
+        text-decoration: none;
+        text-align: center;
+        text-decoration: none;
+        color: black;
+        span{
+            font-size: px2rem(24);
+        }
+        .iconfont{
+            display: block;
+            font-size: px2rem(40);
+            margin: 0 auto;   
+        }
+        &.active{
+            color: yellow;
+        }
+    }
+
+}

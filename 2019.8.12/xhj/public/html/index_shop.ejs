@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Do cument</title>
+    <link rel="stylesheet" href="../css/flexible.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../fonts/iconfont.css">
+    <script src="../js/flexible.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <div class="header">
+            <div class="left"><i class="icon iconfont icon-chevron-thin-left"></i></div>
+            <div class="title_text">购物车</div>
+            <div class="right"></div>
+        </div>
+        <div class="section">
+            <div class="login">
+                <span>您还没有登录登录后自动加入购物车 </span><span id='login_btn'> 登录</span>
+            </div>
+            <div class="checkAll">
+                    <span class="checkAllbtn <%= data1 %>"><i class="icon iconfont icon-querenwancheng"></i></span>
+                </div>
+            <div class="shoplist_container">
+                
+                <div class="shopCar_wrap">
+                    <div>
+                        <div class="content">
+                            <div class="shop_content ">
+                                <% for(var i=0;i < data.length;i++) { %>
+                                <div class="shop_list">
+                                    <div class="shop_left">
+                                        <span class="<%= data[i].isChange %> checkbtn" data-id="<%= data[i].id %>"><i
+                                                class="icon iconfont icon-querenwancheng"></i></span>
+                                    </div>
+                                    <div class="shop_center">
+                                        <div class="shop_img">
+                                            <img src="<%= data[i].shopPic %>" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="shop_right">
+                                        <div class="shop_right_title">
+                                            <b><%= data[i].title %></b><span class="shop_right_delbtn"
+                                                data-id="<%= data[i].id %>"><i
+                                                    class="icon iconfont icon-guanbi-01"></i></span>
+                                        </div>
+                                        <div class="shop_right_desc">
+                                            <%= data[i].subTitle %>
+                                        </div>
+                                        <div class="shop_right_mn">
+                                            <div class="money">
+                                                <b>￥</b><b class='bbb'><%= data[i].money %></b>
+                                            </div>
+                                            <div class="num">
+                                                <span class="count" data-id="<%= data[i].id %>">-</span><input
+                                                    type="text" id="size" class="size" value="<%= data[i].num %>"><span
+                                                    class="add" data-id="<%= data[i].id %>">+</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <% } %>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="allMoney">
+                <div class="left_allMoney" id="left_allMoney">
+                    <span class="allcheck <%= data1 %>"><i class="icon iconfont icon-querenwancheng"></i></span> 全选
+                </div>
+                <div class="center_allMoney">合计：<span id="allshopmoney">￥2299</span>(不含运费)</div>
+                <div class="right_allMoney">结算：(<em id="sumAll">5</em>)</div>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#home">
+                <i class="icon iconfont icon-shouye"></i>
+                <span>首页</span>
+            </a>
+            <a href="/">
+                <i class="icon iconfont icon-zixun"></i>
+                <span>分类</span>
+            </a>
+            <a href="/index_shop" class="active">
+                <i class="icon iconfont icon-gouwuche"></i>
+                <span>购物车</span>
+            </a>
+            <a href="#home">
+                <i class="icon iconfont icon-wode"></i>
+                <span>我的</span>
+            </a>
+        </div>
+    </div>
+</body>
+<script src="../js/bscroll.min.js"></script>
+<script src="../js/ajax.js"></script>
+<script src="../js/script.js"></script>
+
+</html>

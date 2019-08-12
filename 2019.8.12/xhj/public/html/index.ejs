@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Do cument</title>
+    <link rel="stylesheet" href="../css/flexible.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../fonts/iconfont.css">
+    <script src="../js/flexible.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <div class="header">
+            <div class="left"><i class="icon iconfont icon-chevron-thin-left"></i></div>
+            <div class="title_text">购物车</div>
+            <div class="right"></div>
+        </div>
+        <div class="section">
+            <div class="index_main">
+                <div class="section_left">
+                    <div class="left_menu-wrap">
+                        <div>
+                            <div class="content">
+                                <ul id="section_left_ul">
+                                    <li class="liactive">自行车</li>
+                                    <li>人身装备</li>
+                                    <li>车身装备</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="section_right">
+                    <div class="right_bottom_wrap tab active_p">
+                        <div class="right_bscroll_wrap">
+                            <div>
+                                <div class="right_bottom_content">
+                                    <div class="swiper">
+                                        <img src="../images/bike_03.gif" alt="">
+                                    </div>
+                                    <div class="right_shop_list">
+                                        <h4>——&nbsp;&nbsp;&nbsp;&nbsp;<b>产品</b>&nbsp;&nbsp;&nbsp;&nbsp;——</h4>
+                                        <div class="shopbikelist">
+
+                                            <% for(var i=0;i < data.length;i++) { %>
+                                            <div class="bike_content" data-id="<%= data[i].id %>">
+                                                <dl>
+                                                    <dt><img src="<%= data[i].bikepic %>" alt=""> </dt>
+                                                    <dd><%= data[i].name %></dd>
+                                                </dl>
+                                            </div>
+                                            <% } %>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab people_equip">
+                        人身装备没有！
+                    </div>
+                    <div class="tab bike_equip">
+                        车身装备没有！
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#home">
+                <i class="icon iconfont icon-shouye"></i>
+                <span>首页</span>
+            </a>
+            <a href="/" class="active">
+                <i class="icon iconfont icon-zixun"></i>
+                <span>分类</span>
+            </a>
+            <a href="/index_shop">
+                <i class="icon iconfont icon-gouwuche"></i>
+                <span>购物车</span>
+            </a>
+            <a href="#">
+                <i class="icon iconfont icon-wode"></i>
+                <span>我的</span>
+            </a>
+        </div>
+    </div>
+</body>
+<script src="../js/bscroll.min.js"></script>
+<script src="../js/ajax.js"></script>
+<script src="../js/index.js"></script>
+
+</html>
