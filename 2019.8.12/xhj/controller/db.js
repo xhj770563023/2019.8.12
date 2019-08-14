@@ -7,7 +7,22 @@ const connection = mysql.createConnection(
 connection.connect((err) => {
     err && console.log(err);
     console.log('数据库连接成功')
-})
+});
+//查购物车数据是否重复
+async function findShopTorf(opt) {
+    var sql='SELECT * FROM `shoplist` WHERE '+Object.keys(opt).map(k=>{
+        return `${k} LIKE '${opt[k]}'`
+    }).join('AND ');
+    return new Promise((resolve, reject) => {
+        connection.query(sql, (err, result) => {
+            if (err) {
+                reject(err);
+            } else {
+                resolve(result);
+            }
+        });
+    })
+};
 //查数据购物车数据
 async function findShop() {
     return new Promise((resolve, reject) => {
@@ -98,6 +113,7 @@ async function upshopMsg(opt) {
 };
 //更新数量
 async function upshopMsg1(opt) {
+    console.log(opt, 11111)
     let sqlM = `UPDATE shoplist SET  num='${opt.isChange}' WHERE (id='${opt.id}')`;
     return new Promise((resolve, reject) => {
         connection.query(sqlM, (err, result) => {
@@ -125,8 +141,8 @@ async function upshopMsg3(opt) {
 //添加购物车列表
 //INSERT INTO shoplist (shopPic, title, subTitle, money, num, isChange) VALUES ('2', '2', '2', '2', '1', 'active1')
 async function upshopMsg5(opt) {
-    console.log(opt, 11111)
-    let sqlM = `INSERT INTO shoplist (shopPic, title, subTitle, money, num, isChange) VALUES ('${opt.pic1}', '${opt.name}', '${opt.size}', '${opt.money1}', '1', 'active1')`;
+    
+    let sqlM = `INSERT INTO shoplist (shopid, shopPic, title, subTitle, money, num, isChange) VALUES ('${opt.id}', '${opt.pic1}', '${opt.name}', '${opt.size}', '${opt.money1}', '1', 'active1')`;
     return new Promise((resolve, reject) => {
         connection.query(sqlM, (err, result) => {
             if (err) {
@@ -138,6 +154,7 @@ async function upshopMsg5(opt) {
     })
 };
 module.exports = {
+    findShopTorf,
     findShop,
     findbike,
     delshoplist,

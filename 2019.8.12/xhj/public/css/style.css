@@ -393,6 +393,7 @@ body {
 }
 
 .section .index_main .section_left {
+  overflow: hidden;
   width: 20%;
   height: 100%;
   border-right: 1px solid #999;
@@ -404,7 +405,7 @@ body {
 }
 
 .section .index_main .section_left .left_menu-wrap > div {
-  min-height: 200.1%;
+  min-height: 100.1%;
 }
 
 .section .index_main .section_left .left_menu-wrap > div .content #section_left_ul {

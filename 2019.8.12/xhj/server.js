@@ -33,6 +33,7 @@ requireD(module,'router',{visit:function(moduleR){
         }
     }
 })
+//监听端口
 app.listen(config.port,()=>{
     console.log(config.port)
 })

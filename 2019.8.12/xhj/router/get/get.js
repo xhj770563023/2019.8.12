@@ -1,5 +1,4 @@
 const Router=require('koa-router');
-const { URL } = require('url');
 const {findShop,findbike,shopdesc,findAll}=require('../../controller/db')
 const router=new Router();
 
@@ -12,9 +11,9 @@ router.get('/index_shop',async(ctx,next)=>{
     });
  });
  router.get('/shopdesc',async(ctx,next)=>{
-    let appURL = new URL('http://localhost:3005' + decodeURIComponent(ctx.url));
+     //请求首页数据
      let result=await shopdesc({
-         id:appURL.searchParams.get('id')
+         id:ctx.query.id
      })
     await ctx.render('shopdesc',{
         data:result[0]
